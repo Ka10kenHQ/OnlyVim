@@ -1,8 +1,8 @@
 local servers = {
-	-- clangd = {},
+	clangd = {},
 	-- gopls = {},
 	pyright = {},
-	-- rust_analyzer = {},
+	rust_analyzer = {},
 
 	lua_ls = {
 		-- cmd = {...},
