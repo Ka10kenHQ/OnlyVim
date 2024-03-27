@@ -10,7 +10,7 @@ vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" }
 
 --NvimTreeCommands
 vim.keymap.set("n", "<C-n>", ":NvimTreeToggle<CR>", { desc = "NvimTree Toggle" })
-vim.keymap.set("n", "<C-e>", "NvimTreeFocus<CR>", { desc = "NvimTree Focus" })
+vim.keymap.set("n", "<leader>f", ":NvimTreeFocus<CR>", { desc = "NvimTree Focus" })
 
 --  See `:help wincmd` for a list of all window commands
 vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
