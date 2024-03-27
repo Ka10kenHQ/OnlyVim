@@ -6,7 +6,16 @@ require("lazy").setup({
 	"tpope/vim-sleuth",
 
 	{ "numToStr/Comment.nvim", opts = {} },
-
+	{
+		"nvim-tree/nvim-tree.lua",
+		cmd = { "NvimTreeToggle", "NvimTreeFocus" },
+		opts = function()
+			return require("lua.configs.nvimtree")
+		end,
+		config = function(_, opts)
+			require("nvim-tree").setup(opts)
+		end,
+	},
 	{
 		"lewis6991/gitsigns.nvim",
 		opts = {
@@ -111,8 +120,6 @@ require("lazy").setup({
 
 					map("K", vim.lsp.buf.hover, "Hover Documentation")
 
-					-- WARN: This is not Goto Definition, this is Goto Declaration.
-					--  For example, in C this would take you to the header.
 					map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
 
 					local client = vim.lsp.get_client_by_id(event.data.client_id)
