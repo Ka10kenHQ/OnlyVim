@@ -1,6 +1,6 @@
-require("lua.opts")
-require("lua.keymaps")
-require("lua.autocmd")
+require("opts")
+require("keymaps")
+require("autocmd")
 
 require("lazy").setup({
 	"tpope/vim-sleuth",
@@ -10,7 +10,7 @@ require("lazy").setup({
 		"nvim-tree/nvim-tree.lua",
 		cmd = { "NvimTreeToggle", "NvimTreeFocus" },
 		opts = function()
-			return require("lua.configs.nvimtree")
+			return require("configs.nvimtree")
 		end,
 		config = function(_, opts)
 			require("nvim-tree").setup(opts)
@@ -75,7 +75,7 @@ require("lazy").setup({
 			pcall(require("telescope").load_extension, "fzf")
 			pcall(require("telescope").load_extension, "ui-select")
 
-			require("lua.configs.telescope")
+			require("configs.telescope")
 		end,
 	},
 
@@ -140,7 +140,7 @@ require("lazy").setup({
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
 			capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 
-			local servers = require("lua.configs.lsp")
+			local servers = require("configs.lsp")
 
 			require("mason").setup()
 
