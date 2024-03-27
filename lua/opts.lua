@@ -19,6 +19,9 @@ vim.opt.showmode = false
 
 vim.opt.shiftwidth = 2
 
+-- clipboard
+vim.opt.clipboard='unnamedplus'
+
 -- Enable break indent
 vim.opt.breakindent = true
 
