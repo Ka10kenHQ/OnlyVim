@@ -146,7 +146,12 @@ require("lazy").setup({
 
 			local ensure_installed = vim.tbl_keys(servers or {})
 			vim.list_extend(ensure_installed, {
-				"stylua", -- Used to format Lua code
+				"stylua",
+				"clangd",
+				"rust-analyzer",
+				"black",
+				"prettier",
+				"typescript-language-server",
 			})
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
@@ -167,14 +172,16 @@ require("lazy").setup({
 		opts = {
 			notify_on_error = false,
 			format_on_save = function(bufnr)
-				local disable_filetypes = { c = true, cpp = true }
 				return {
 					timeout_ms = 500,
-					lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
+					lsp_fallback = vim.bo[bufnr].filetype,
 				}
 			end,
 			formatters_by_ft = {
-				lua = { "stylua", "black", "prettier", "clang-format" },
+				lua = { "stylua" },
+				cpp = { "clang-format" },
+				javascript = { "prettier" },
+				typescript = { "prettier" },
 			},
 		},
 	},
@@ -293,7 +300,7 @@ require("lazy").setup({
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
 		opts = {
-			ensure_installed = { "bash", "c", "html", "lua", "markdown", "vim", "vimdoc" },
+			ensure_installed = { "bash", "cpp", "html", "lua", "javascript" },
 			auto_install = true,
 			highlight = {
 				enable = true,
