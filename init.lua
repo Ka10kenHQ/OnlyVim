@@ -4,7 +4,13 @@ require("autocmd")
 
 require("lazy").setup({
 	"tpope/vim-sleuth",
-
+	{
+		"NvChad/nvterm",
+		config = function()
+			require("nvterm").setup()
+		end,
+	},
+	{ "craigemery/vim-autotag" },
 	{ "numToStr/Comment.nvim", opts = {} },
 	{
 		"nvim-tree/nvim-tree.lua",

@@ -17,3 +17,32 @@ vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left wind
 vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
 vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
 vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
+
+-- Terminal keymaps
+vim.api.nvim_set_keymap(
+	"n",
+	"<leader>h",
+	"<Cmd>lua require('nvterm.terminal').toggle('horizontal')<CR>",
+	{ noremap = true, silent = true }
+)
+
+vim.api.nvim_set_keymap(
+	"n",
+	"<leader>v",
+	"<Cmd>lua require('nvterm.terminal').toggle('vertical')<CR>",
+	{ noremap = true, silent = true }
+)
+
+vim.api.nvim_set_keymap(
+	"t",
+	"<leader>h",
+	"<Cmd>lua require('nvterm.terminal').toggle('horizontal')<CR>",
+	{ noremap = true, silent = true }
+)
+
+vim.api.nvim_set_keymap(
+	"t",
+	"<leader>v",
+	"<Cmd>lua require('nvterm.terminal').toggle('horizontal')<CR>",
+	{ noremap = true, silent = true }
+)
