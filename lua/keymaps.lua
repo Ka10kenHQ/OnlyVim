@@ -46,3 +46,13 @@ vim.api.nvim_set_keymap(
 	"<Cmd>lua require('nvterm.terminal').toggle('horizontal')<CR>",
 	{ noremap = true, silent = true }
 )
+
+-- Code runner
+
+vim.keymap.set("n", "<leader>cr", ":RunCode<CR>", { noremap = true, silent = false })
+vim.keymap.set("n", "<leader>crf", ":RunFile<CR>", { noremap = true, silent = false })
+vim.keymap.set("n", "<leader>crft", ":RunFile tab<CR>", { noremap = true, silent = false })
+vim.keymap.set("n", "<leader>crp", ":RunProject<CR>", { noremap = true, silent = false })
+vim.keymap.set("n", "<leader>crc", ":RunClose<CR>", { noremap = true, silent = false })
+vim.keymap.set("n", "<leader>crf", ":CRFiletype<CR>", { noremap = true, silent = false })
+vim.keymap.set("n", "<leader>crp", ":CRProjects<CR>", { noremap = true, silent = false })

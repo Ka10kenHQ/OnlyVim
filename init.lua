@@ -5,6 +5,28 @@ require("autocmd")
 require("lazy").setup({
 	"tpope/vim-sleuth",
 	{
+		"CRAG666/code_runner.nvim",
+		config = function()
+			require("code_runner").setup({
+				filetype = {
+					java = {
+						"cd $dir &&",
+						"javac $fileName &&",
+						"java $fileNameWithoutExt",
+					},
+					python = "python3 -u",
+					--	typescript = "deno run",
+					rust = {
+						"cd $dir &&",
+						"rustc $fileName &&",
+						"./$fileNameWithoutExt",
+					},
+				},
+			})
+		end,
+	},
+
+	{
 		"NvChad/nvterm",
 		config = function()
 			require("nvterm").setup()
