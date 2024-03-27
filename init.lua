@@ -152,6 +152,8 @@ require("lazy").setup({
 				"black",
 				"prettier",
 				"typescript-language-server",
+				"pyright",
+				"html-lsp",
 			})
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
@@ -300,7 +302,7 @@ require("lazy").setup({
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
 		opts = {
-			ensure_installed = { "bash", "cpp", "html", "lua", "javascript" },
+			ensure_installed = { "bash", "cpp", "html", "lua", "javascript", "css", "python" },
 			auto_install = true,
 			highlight = {
 				enable = true,
@@ -333,6 +335,3 @@ require("lazy").setup({
 		},
 	},
 })
-
--- The line beneath this is called `modeline`. See `:help modeline`
--- vim: ts=2 sts=2 sw=2 et
