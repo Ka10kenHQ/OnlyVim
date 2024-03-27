@@ -1,3 +1,3 @@
 # OnlyVim
 
-## testing push on test branch
+## updated kickstart nvim and added some folders
