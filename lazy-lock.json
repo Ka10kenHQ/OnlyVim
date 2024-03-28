@@ -1,0 +1,4 @@
+{
+  "code_runner.nvim": { "branch": "main", "commit": "e40f651e98a0a12fcd44bf54a2ed258cfee5a914" },
+  "lazy.nvim": { "branch": "main", "commit": "65887ea871d44822bff47504202b3643f29d614e" }
+}

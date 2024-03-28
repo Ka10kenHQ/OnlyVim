@@ -1,7 +1,6 @@
 require("opts")
 require("keymaps")
 require("autocmd")
-
 require("lazy").setup({
 	"tpope/vim-sleuth",
 	{
@@ -348,6 +347,9 @@ require("lazy").setup({
 		config = function(_, opts)
 			require("nvim-treesitter.configs").setup(opts)
 		end,
+	},
+	{
+			{ "CRAG666/code_runner.nvim", config = true },
 	},
 }, {
 	ui = {
