@@ -1,9 +1,7 @@
-local M = {}
-
-M.opt = vim.opt
-
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
+
+vim.o.background = "dark" -- or "light" for light mode
 
 -- Set to true if you have a Nerd Font installed
 vim.g.have_nerd_font = false
@@ -19,11 +17,11 @@ vim.opt.showmode = false
 
 vim.opt.shiftwidth = 2
 
--- clipboard
-vim.opt.clipboard='unnamedplus'
-
 -- Enable break indent
 vim.opt.breakindent = true
+
+-- clipboard
+vim.opt.clipboard = "unnamedplus"
 
 -- Save undo history
 vim.opt.undofile = true
@@ -55,8 +53,3 @@ vim.opt.scrolloff = 10
 
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
-
---vim.opt.listchars = { eol = "↵" }
---vim.opt.list = true
-
-return M

@@ -4,34 +4,33 @@ require("autocmd")
 
 require("lazy").setup({
 	"tpope/vim-sleuth",
+	{
+		"nvim-lualine/lualine.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		opts = function()
+			require("configs.statusline")
+		end,
+		config = function(_, opts)
+			require("lualine").setup(opts)
+		end,
+	},
 
 	{
 		"windwp/nvim-autopairs",
 		event = "InsertEnter",
 		config = true,
-		-- use opts = {} for passing setup options
-		-- this is equalent to setup({}) function
 	},
+
 	{
-		"CRAG666/code_runner.nvim",
-		config = function()
-			require("code_runner").setup({
-				filetype = {
-					java = {
-						"cd $dir &&",
-						"javac $fileName &&",
-						"java $fileNameWithoutExt",
-					},
-					python = "python3 -u",
-					--	typescript = "deno run",
-					rust = {
-						"cd $dir &&",
-						"rustc $fileName &&",
-						"./$fileNameWithoutExt",
-					},
-				},
-			})
+		"numToStr/Comment.nvim",
+		opts = function()
+			-- Load and return options from configs.comments.lua
+			return require("configs.comments")
 		end,
+		config = function(_, opts)
+			require("Comment").setup(opts)
+		end,
+		lazy = false,
 	},
 
 	{
@@ -318,22 +317,22 @@ require("lazy").setup({
 		opts = { signs = false },
 	},
 
-	{ -- Collection of various small independent plugins/modules
-		"echasnovski/mini.nvim",
-		config = function()
-			require("mini.ai").setup({ n_lines = 500 })
-
-			require("mini.surround").setup()
-
-			local statusline = require("mini.statusline")
-
-			statusline.setup({ use_icons = vim.g.have_nerd_font })
-
-			statusline.section_location = function()
-				return "%2l:%-2v"
-			end
-		end,
-	},
+	-- { -- Collection of various small independent plugins/modules
+	-- 	"echasnovski/mini.nvim",
+	-- 	config = function()
+	-- 		require("mini.ai").setup({ n_lines = 500 })
+	--
+	-- 		require("mini.surround").setup()
+	--
+	-- 		local statusline = require("mini.statusline")
+	--
+	-- 		statusline.setup({ use_icons = vim.g.have_nerd_font })
+	--
+	-- 		statusline.section_location = function()
+	-- 			return "%2l:%-2v"
+	-- 		end
+	-- 	end,
+	-- },
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
