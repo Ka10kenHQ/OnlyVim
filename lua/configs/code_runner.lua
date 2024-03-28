@@ -9,7 +9,7 @@ require("code_runner").setup({
 		typescript = "deno run",
 		rust = {
 			"cd $dir &&",
-			"rustc $fileName &&",
+			"cargo run $fileName &&",
 			"$dir/$fileNameWithoutExt",
 		},
 		c = function(...)
