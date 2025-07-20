@@ -3,8 +3,13 @@
 Simple and Configurable Neovim Distribution
 Configured starting from [KickStart.nvim](https://github.com/nvim-lua/kickstart.nvim)
 
-## Requirements
+## Requirements packages
 - Neovim >= 0.10
+- fzf
+- zip
+- unzip
+- tar
+- node
 
 ## Get started
 ```sh
