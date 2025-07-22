@@ -5,6 +5,7 @@ Configured starting from [KickStart.nvim](https://github.com/nvim-lua/kickstart.
 
 
 ![neovim](https://github.com/OnlyVim/OnlyVim/blob/images/images/img1.jpg)
+![neovim1.0](https://github.com/OnlyVim/OnlyVim/blob/images/images/_byLCLz2.jpg)
 
 ## Requirements packages
 - Neovim >= 0.10
