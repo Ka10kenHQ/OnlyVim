@@ -3,6 +3,9 @@
 Simple and Configurable Neovim Distribution
 Configured starting from [KickStart.nvim](https://github.com/nvim-lua/kickstart.nvim)
 
+
+![neovim](https://github.com/OnlyVim/OnlyVim/blob/images/images/img1.jpg)
+
 ## Requirements packages
 - Neovim >= 0.10
 - fzf
