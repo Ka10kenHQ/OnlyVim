@@ -7,7 +7,7 @@ Configured starting from [KickStart.nvim](https://github.com/nvim-lua/kickstart.
 ![neovim](https://github.com/OnlyVim/OnlyVim/blob/images/images/image.png)
 
 ## Requirements packages
-- Neovim >= 0.10
+- Neovim >= 0.12
 - fzf
 - zip
 - unzip

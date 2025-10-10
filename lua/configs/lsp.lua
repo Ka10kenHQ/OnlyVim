@@ -51,13 +51,10 @@ local lsp_servers = function()
 				},
 			},
 		},
-		lemminx = {},
 		rust_analyzer = {},
-		taplo = {},
 		html = {},
 		pyright = {},
 		mojo = { manual_install = true },
-		biome = {},
 		ts_ls = {
 			root_dir = vim.fs.root(0, { "package.json" }),
 			single_file_support = false,
@@ -80,7 +77,6 @@ local lsp_servers = function()
 				},
 			},
 		},
-		tinymist = {},
 	}
 end
 
@@ -128,7 +124,6 @@ function M.setup()
 	local ensure_installed = {
 		"stylua",
 		"lua_ls",
-		"delve",
 		"black",
 	}
 	vim.list_extend(ensure_installed, servers_to_install)
