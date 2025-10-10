@@ -1,6 +1,6 @@
 # OnlyVim
 
-Simple and Configurable Neovim Distribution
+### Simple and Configurable Neovim Distribution
 
 ![neovim](https://github.com/OnlyVim/OnlyVim/blob/images/images/image.png)
 
