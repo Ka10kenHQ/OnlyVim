@@ -1,5 +1,4 @@
 local M = {}
-
 local keymaps = function(builtin, bufnr)
 	vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = bufnr })
 	vim.keymap.set("n", "wr", builtin.lsp_references, { buffer = bufnr })
@@ -85,6 +84,26 @@ local lsp_servers = function()
 	}
 end
 
+local dotnet_setup = function()
+	vim.lsp.config("roslyn", {
+		on_attach = function()
+			print("Roslyn attached yay!")
+		end,
+		settings = {
+			["csharp|inlay_hints"] = {
+				csharp_enable_inlay_hints_for_implicit_object_creation = true,
+				csharp_enable_inlay_hints_for_implicit_variable_types = true,
+			},
+			["csharp|code_lens"] = {
+				dotnet_enable_references_code_lens = true,
+			},
+			["csharp|formatting"] = {
+				dotnet_organize_imports_on_format = true,
+			},
+		},
+	})
+end
+
 function M.setup()
 	require("mason").setup({
 		registries = {
@@ -92,6 +111,8 @@ function M.setup()
 			"github:Crashdummyy/mason-registry",
 		},
 	})
+
+	dotnet_setup()
 
 	local capabilities
 	if pcall(require, "cmp_nvim_lsp") then

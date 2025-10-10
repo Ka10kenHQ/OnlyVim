@@ -1,6 +1,6 @@
 require("opts")
 require("keymaps")
-require("autocmd")
+require("plugin_manager")
 
 require("lazy").setup({
 	"tpope/vim-sleuth",
@@ -12,6 +12,10 @@ require("lazy").setup({
 	require("plugins.lspkind"),
 
 	require("plugins.telescope"),
+
+	require("plugins.comment"),
+
+	require("plugins.autopairs"),
 
 	require("plugins.cmp"),
 
@@ -25,7 +29,7 @@ require("lazy").setup({
 
 	require("plugins.typst"),
 
-	require("plugins.commentsBrackets"),
+	require("plugins.trouble"),
 
 	require("plugins.oil"),
 
