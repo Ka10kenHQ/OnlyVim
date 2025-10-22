@@ -17,7 +17,7 @@ require("lazy").setup({
 
 	require("plugins.autopairs"),
 
-	require("plugins.cmp"),
+	require("plugins.blank"),
 
 	require("plugins.sqlui"),
 

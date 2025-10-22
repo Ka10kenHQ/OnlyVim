@@ -77,6 +77,7 @@ local lsp_servers = function()
 				},
 			},
 		},
+		tinymist = {},
 	}
 end
 
@@ -92,8 +93,10 @@ local dotnet_setup = function()
 			},
 			["csharp|code_lens"] = {
 				dotnet_enable_references_code_lens = true,
+				dotnet_enable_tests_code_lens = true,
 			},
 			["csharp|formatting"] = {
+				enable = true,
 				dotnet_organize_imports_on_format = true,
 			},
 		},

@@ -35,7 +35,10 @@ function M.setup()
 		mapping = {
 			["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
 			["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
-			["<Return>"] = cmp.mapping(cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true }), { "i", "c" }),
+			["<Return>"] = cmp.mapping(
+				cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true }),
+				{ "i", "c" }
+			),
 		},
 		snippet = {
 			expand = function(args)

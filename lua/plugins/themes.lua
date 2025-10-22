@@ -1,56 +1,31 @@
 return {
-	"rose-pine/neovim",
-	name = "rose-pine",
+	"shaunsingh/nord.nvim",
 	config = function()
-		require("rose-pine").setup({
-			variant = "auto",
-			dark_variant = "main",
-			dim_inactive_windows = false,
-			extend_background_behind_borders = true,
+		vim.g.nord_contrast = true
+		vim.g.nord_borders = false
+		vim.g.nord_disable_background = false
+		vim.g.nord_italic = true
+		vim.g.nord_uniform_diff_background = true
+		vim.g.nord_bold = false
 
-			enable = {
-				terminal = true,
-				legacy_highlights = true,
-				migrations = true,
-			},
+		require("nord").set()
 
-			styles = {
-				bold = true,
-				italic = true,
-				transparency = true,
-			},
+		local groups = {
+			"Normal",
+			"NormalNC",
+			"LineNr",
+			"CursorLineNr",
+			"SignColumn",
+			"VertSplit",
+			"StatusLine",
+			"StatusLineNC",
+			"NormalFloat",
+			"Folded",
+			"EndOfBuffer",
+		}
 
-			groups = {
-				border = "muted",
-				link = "iris",
-				panel = "surface",
-
-				error = "love",
-				hint = "iris",
-				info = "foam",
-				note = "pine",
-				todo = "rose",
-				warn = "gold",
-
-				git_add = "foam",
-				git_change = "rose",
-				git_delete = "love",
-				git_dirty = "rose",
-				git_ignore = "muted",
-				git_merge = "iris",
-				git_rename = "pine",
-				git_stage = "iris",
-				git_text = "rose",
-				git_untracked = "subtle",
-
-				h1 = "iris",
-				h2 = "foam",
-				h3 = "rose",
-				h4 = "gold",
-				h5 = "pine",
-				h6 = "foam",
-			},
-		})
-		vim.cmd("colorscheme rose-pine")
+		for _, group in ipairs(groups) do
+			vim.cmd(string.format("highlight %s guibg=#000000 ctermbg=0", group))
+		end
 	end,
 }

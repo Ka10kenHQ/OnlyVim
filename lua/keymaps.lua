@@ -19,6 +19,6 @@ vim.keymap.set("n", "<leader>bd", function()
 	vim.cmd("bp | bd #")
 end, { desc = "Close buffer" })
 
-vim.keymap.set("n", "<leader>t", "<Cmd>tabnew | ter<CR>", { desc = "Open new Neovim Terminal" })
+vim.keymap.set("n", "<leader>t", "<Cmd>tabnew<CR>", { desc = "Open new tab" })
 
 vim.keymap.set("n", "<C-n>", "<Cmd>Oil<CR>", { desc = "File Explorer Oil" })
