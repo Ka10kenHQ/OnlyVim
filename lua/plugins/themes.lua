@@ -1,29 +1,28 @@
-return {
-	"tjdevries/colorbuddy.nvim",
-	config = function()
-		vim.cmd.colorscheme("gruvbuddy")
-		local colorbuddy = require("colorbuddy")
+local theme_configs = require("configs.theme")
 
-		colorbuddy.colorscheme("my-colorscheme-name")
+local themes = {
+	colorbuddy = {
+		"tjdevries/colorbuddy.nvim",
+		config = function()
+			theme_configs.color_buddy()
+		end,
+	},
 
-		local Color = colorbuddy.Color
-		local colors = colorbuddy.colors
-		local Group = colorbuddy.Group
-		local groups = colorbuddy.groups
-		local styles = colorbuddy.styles
-
-		Color.new("background", "#282c34")
-		Color.new("red", "#cc6666")
-		Color.new("green", "#99cc99")
-		Color.new("yellow", "#f0c674")
-
-		Group.new("Function", colors.yellow, colors.background, styles.bold)
-		Group.new("luaFunctionCall", groups.Function, groups.Function, groups.Function)
-
-		Group.new("Error", colors.red:light(), nil, styles.bold)
-
-		Group.new("italicBoldFunction", colors.green, groups.Function, styles.bold + styles.italic)
-
-		Group.new("boldFunction", colors.yellow, colors.background, groups.italicBoldFunction - styles.italic)
-	end,
+	rose_pine = {
+		"rose-pine/neovim",
+		name = "rose-pine",
+		config = function()
+			theme_configs.rose_pine()
+		end,
+	},
+	gorgoroth = {
+		"RRethy/base16-nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			theme_configs.gorgorithm()
+		end,
+	},
 }
+
+return themes.colorbuddy

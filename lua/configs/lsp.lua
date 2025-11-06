@@ -1,7 +1,7 @@
 local M = {}
 local keymaps = function(builtin, bufnr)
 	vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = bufnr })
-	vim.keymap.set("n", "wr", builtin.lsp_references, { buffer = bufnr })
+	vim.keymap.set("n", "sr", builtin.lsp_references, { buffer = bufnr })
 	vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = bufnr })
 	vim.keymap.set("n", "gT", vim.lsp.buf.type_definition, { buffer = bufnr })
 	vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = bufnr })
@@ -52,9 +52,7 @@ local lsp_servers = function()
 			},
 		},
 		rust_analyzer = {},
-		html = {},
 		pyright = {},
-		mojo = { manual_install = true },
 		ts_ls = {
 			root_dir = vim.fs.root(0, { "package.json" }),
 			single_file_support = false,
@@ -64,19 +62,19 @@ local lsp_servers = function()
 				},
 			},
 		},
-		jsonls = {
-			capabilities = {
-				textDocument = {
-					formatting = vim.NIL,
-				},
-			},
-			settings = {
-				json = {
-					schemas = require("schemastore").json.schemas(),
-					validate = { enable = true },
-				},
-			},
-		},
+		-- jsonls = {
+		-- 	capabilities = {
+		-- 		textDocument = {
+		-- 			formatting = vim.NIL,
+		-- 		},
+		-- 	},
+		-- 	settings = {
+		-- 		json = {
+		-- 			schemas = require("schemastore").json.schemas(),
+		-- 			validate = { enable = true },
+		-- 		},
+		-- 	},
+		-- },
 		tinymist = {},
 	}
 end
