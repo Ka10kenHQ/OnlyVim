@@ -3,14 +3,6 @@ vim.g.maplocalleader = " "
 
 vim.o.background = "dark"
 
--- vim.o.list = true
---
--- vim.opt.listchars = {
--- 	tab = "» ",
--- 	trail = "·",
--- 	nbsp = "␣",
--- }
-
 vim.g.have_nerd_font = true
 
 vim.opt.number = true

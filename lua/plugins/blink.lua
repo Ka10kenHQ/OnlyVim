@@ -8,19 +8,11 @@ return {
 
 		appearance = {
 			nerd_font_variant = "mono",
-			menu = {
-				buffer = "[buf]",
-				nvim_lsp = "[LSP]",
-				nvim_lua = "[api]",
-				path = "[path]",
-				luasnip = "[snip]",
-				gh_issues = "[issues]",
-				tn = "[TabNine]",
-				eruby = "[erb]",
-			},
 		},
 
-		completion = { documentation = { auto_show = false } },
+		completion = {
+			documentation = { auto_show = false },
+		},
 
 		sources = {
 			default = { "lsp", "path", "snippets", "buffer" },

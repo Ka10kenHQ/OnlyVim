@@ -26,6 +26,16 @@ themes.color_buddy = function()
 	Group.new("boldFunction", colors.yellow, colors.background, groups.italicBoldFunction - styles.italic)
 
 	vim.cmd.colorscheme("gruvbuddy")
+
+	vim.cmd([[
+		highlight Normal guibg=NONE ctermbg=NONE
+		highlight NormalNC guibg=NONE ctermbg=NONE
+		highlight VertSplit guibg=NONE ctermbg=NONE
+		highlight StatusLine guibg=NONE ctermbg=NONE
+		highlight NormalFloat guibg=NONE ctermbg=NONE
+		highlight SignColumn guibg=NONE ctermbg=NONE
+		highlight LineNr guibg=NONE ctermbg=NONE
+        ]])
 end
 
 themes.rose_pine = function()

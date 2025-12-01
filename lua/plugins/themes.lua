@@ -3,6 +3,8 @@ local theme_configs = require("configs.theme")
 local themes = {
 	colorbuddy = {
 		"tjdevries/colorbuddy.nvim",
+		lazy = false,
+		priority = 1000,
 		config = function()
 			theme_configs.color_buddy()
 		end,
