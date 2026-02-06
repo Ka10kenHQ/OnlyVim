@@ -2,7 +2,7 @@
 
 ### Simple and Configurable Neovim Distribution
 
-![neovim](https://github.com/OnlyVim/OnlyVim/blob/images/images/image.png)
+![neovim](https://github.com/OnlyVim/OnlyVim/blob/images/images/neovim_v2.png)
 
 ## Requirements packages
 - Neovim >= 0.12
