@@ -41,9 +41,9 @@ return {
 			},
 
 			pickers = {
-				find_files = {
-					-- theme = "dropdown",
-				},
+				-- find_files = {
+				-- theme = "ivy",
+				-- },
 			},
 
 			builtin = {
