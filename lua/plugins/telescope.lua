@@ -26,7 +26,14 @@ return {
 			defaults = {
 				path_display = { "filename_first" },
 				vimgrep_arguments = {
-					"--hidden", -- Include hidden files
+					"rg",
+					"--color=never",
+					"--no-heading",
+					"--with-filename",
+					"--line-number",
+					"--column",
+					"--smart-case",
+					"--hidden",
 				},
 				file_ignore_patterns = {
 					"node_modules",
