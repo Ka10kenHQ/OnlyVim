@@ -8,6 +8,8 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 	"tpope/vim-sleuth",
 
+	require("plugins.startup"),
+
 	require("plugins.themes"),
 
 	require("plugins.lsp"),
