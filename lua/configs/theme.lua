@@ -28,14 +28,14 @@ themes.color_buddy = function()
 	vim.cmd.colorscheme("gruvbuddy")
 
 	vim.cmd([[
+		highlight LineNr guibg=NONE ctermbg=NONE
+		highlight CursorLineNr guifg=#88c0d0 gui=bold guibg=NONE
 		highlight Normal guibg=NONE ctermbg=NONE
 		highlight NormalNC guibg=NONE ctermbg=NONE
-		highlight VertSplit guibg=NONE ctermbg=NONE
-		highlight StatusLine guibg=NONE ctermbg=NONE
-		highlight NormalFloat guibg=NONE ctermbg=NONE
-		highlight SignColumn guibg=NONE ctermbg=NONE
-		highlight LineNr guibg=NONE ctermbg=NONE
-        ]])
+		highlight SignColumn guibg=NONE
+		highlight EndOfBuffer guibg=NONE
+		highlight VertSplit guibg=NONE
+	]])
 end
 
 themes.rose_pine = function()
@@ -94,7 +94,7 @@ end
 
 themes.gorgorithm = function()
 	require("base16-colorscheme").with_config({
-		telescope = false,
+		telescope = true,
 		indentblankline = true,
 		notify = true,
 		ts_rainbow = true,

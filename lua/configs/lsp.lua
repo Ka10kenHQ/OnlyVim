@@ -76,6 +76,20 @@ local lsp_servers = function()
 		-- 	},
 		-- },
 		tinymist = {},
+		yamlls = {
+			settings = {
+				yaml = {
+					schemas = {
+						["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] = {
+							"docker-compose.yml",
+							"docker-compose.yaml",
+							"compose.yml",
+							"compose.yaml",
+						},
+					},
+				},
+			},
+		},
 	}
 end
 
