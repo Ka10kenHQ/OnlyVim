@@ -28,6 +28,10 @@
       "rev": "dca1a190aa85f9065979ef35802fb77131911106",
       "src": "https://github.com/stevearc/conform.nvim"
     },
+    "dashboard-nvim": {
+      "rev": "f787e3462c2ee2b6117b17c1aa4ddf66cb6f57fe",
+      "src": "https://github.com/nvimdev/dashboard-nvim"
+    },
     "express_line.nvim": {
       "rev": "4f29eee52a2c2100f89ba7b8417ce17e1ba13a1c",
       "src": "https://github.com/Ka10ken1/express_line.nvim"

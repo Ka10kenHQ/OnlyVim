@@ -1,71 +1,64 @@
-return {
-	"nvimdev/dashboard-nvim",
-	event = "VimEnter",
-	dependencies = { { "nvim-tree/nvim-web-devicons" } },
+vim.pack.add({ { src = "https://github.com/nvimdev/dashboard-nvim" } })
 
-	config = function()
-		local dashboard = require("dashboard")
+local dashboard = require("dashboard")
 
-		dashboard.setup({
-			theme = "doom",
+dashboard.setup({
+	theme = "doom",
+	config = {
+		header = {
+			"",
+			"     ██████╗ ███╗   ██╗██╗  ██╗   ██╗██╗███╗   ███╗",
+			"    ██╔═══██╗████╗  ██║██║  ╚██╗ ██╔╝██║████╗ ████║",
+			"    ██║   ██║██╔██╗ ██║██║   ╚████╔╝ ██║██╔████╔██║",
+			"    ██║   ██║██║╚██╗██║██║    ╚██╔╝  ██║██║╚██╔╝██║",
+			"    ╚██████╔╝██║ ╚████║███████╗██║   ██║██║ ╚═╝ ██║",
+			"     ╚═════╝ ╚═╝  ╚═══╝╚══════╝╚═╝   ╚═╝╚═╝     ╚═╝",
+			"",
+		},
 
-			config = {
-				header = {
-					"",
-					"     ██████╗ ███╗   ██╗██╗  ██╗   ██╗██╗███╗   ███╗",
-					"    ██╔═══██╗████╗  ██║██║  ╚██╗ ██╔╝██║████╗ ████║",
-					"    ██║   ██║██╔██╗ ██║██║   ╚████╔╝ ██║██╔████╔██║",
-					"    ██║   ██║██║╚██╗██║██║    ╚██╔╝  ██║██║╚██╔╝██║",
-					"    ╚██████╔╝██║ ╚████║███████╗██║   ██║██║ ╚═╝ ██║",
-					"     ╚═════╝ ╚═╝  ╚═══╝╚══════╝╚═╝   ╚═╝╚═╝     ╚═╝",
-					"",
-				},
+		center = {
 
-				center = {
-
-					{
-						icon = " ",
-						desc = "New File",
-						key = "n",
-						action = "ene | startinsert",
-					},
-
-					{
-						icon = " ",
-						desc = "Find Files",
-						key = "f",
-						action = "Telescope find_files",
-					},
-
-					{
-						icon = " ",
-						desc = "Recent Files",
-						key = "r",
-						action = "Telescope oldfiles",
-					},
-
-					{
-						icon = " ",
-						desc = "Config",
-						key = "c",
-						action = "edit $MYVIMRC",
-					},
-
-					{
-						icon = " ",
-						desc = "Quit",
-						key = "q",
-						action = "qa",
-					},
-				},
-
-				footer = {
-					"",
-					"OnlyVim — because GUIs are for the weak.",
-				},
-
-				vertical_center = true,
+			{
+				icon = " ",
+				desc = "New File",
+				key = "n",
+				action = "ene | startinsert",
 			},
-		})
-	end,
-}
+
+			{
+				icon = " ",
+				desc = "Find Files",
+				key = "f",
+				action = "Telescope find_files",
+			},
+
+			{
+				icon = " ",
+				desc = "Recent Files",
+				key = "r",
+				action = "Telescope oldfiles",
+			},
+
+			{
+				icon = " ",
+				desc = "Config",
+				key = "c",
+				action = "edit $MYVIMRC",
+			},
+
+			{
+				icon = " ",
+				desc = "Quit",
+				key = "q",
+				action = "qa",
+			},
+		},
+
+		footer = {
+			"",
+			"OnlyVim — because GUIs are for the weak.",
+		},
+
+		vertical_center = true,
+	},
+})
