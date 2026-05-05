@@ -1,30 +1,26 @@
+vim.pack.add({
+	{ src = "https://github.com/tjdevries/colorbuddy.nvim" },
+	{ src = "https://github.com/rose-pine/neovim" },
+	{ src = "https://github.com/RRethy/base16-nvim" },
+})
+
 local theme_configs = require("configs.theme")
 
-local themes = {
-	colorbuddy = {
-		"tjdevries/colorbuddy.nvim",
-		lazy = false,
-		priority = 1000,
-		config = function()
-			theme_configs.color_buddy()
-		end,
-	},
+local M = {}
 
-	rose_pine = {
-		"rose-pine/neovim",
-		name = "rose-pine",
-		config = function()
-			theme_configs.rose_pine()
-		end,
-	},
-	gorgoroth = {
-		"RRethy/base16-nvim",
-		lazy = false,
-		priority = 1000,
-		config = function()
-			theme_configs.gorgorithm()
-		end,
-	},
-}
+function M.colorbuddy()
+	require("colorbuddy").setup()
+	theme_configs.color_buddy()
+end
 
-return themes.colorbuddy
+function M.rose_pine()
+	require("rose-pine").setup()
+	theme_configs.rose_pine()
+end
+
+function M.gorgoroth()
+	require("base16-colorscheme").setup()
+	theme_configs.gorgorithm()
+end
+
+return M.colorbuddy()

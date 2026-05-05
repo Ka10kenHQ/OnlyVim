@@ -1,16 +1,16 @@
-return {
-	"seblyng/roslyn.nvim",
-	ft = { "cs" },
-	opts = {
-		filewatching = "roslyn",
+vim.pack.add({
+	{ src = "https://github.com/seblyng/roslyn.nvim" },
+})
 
-		choose_target = nil,
-		ignore_target = nil,
+require("roslyn").setup({
+	filewatching = "roslyn",
 
-		broad_search = true,
+	choose_target = nil,
+	ignore_target = nil,
 
-		lock_target = false,
+	broad_search = true,
 
-		silent = false,
-	},
-}
+	lock_target = false,
+
+	silent = false,
+})

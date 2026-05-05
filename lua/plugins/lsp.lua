@@ -1,18 +1,31 @@
-return {
-	"neovim/nvim-lspconfig",
-	dependencies = {
-		{ "Bilal2453/luvit-meta", lazy = true },
-		{ "williamboman/mason.nvim" },
-		{ "williamboman/mason-lspconfig.nvim" },
-		"WhoIsSethDaniel/mason-tool-installer.nvim",
+vim.pack.add({
+	{ src = "https://github.com/neovim/nvim-lspconfig" },
+	{ src = "https://github.com/williamboman/mason.nvim" },
+	{ src = "https://github.com/williamboman/mason-lspconfig.nvim" },
+	{ src = "https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim" },
 
-		{ "j-hui/fidget.nvim", opts = {} },
+	{ src = "https://github.com/j-hui/fidget.nvim" },
 
-		"stevearc/conform.nvim",
+	{ src = "https://github.com/b0o/SchemaStore.nvim" },
+})
 
-		"b0o/SchemaStore.nvim",
+require("mason").setup()
+
+require("mason-tool-installer").setup({
+	ensure_installed = {
+		"lua-language-server",
+		"gopls",
+		"typescript-language-server",
+		"pyright",
+		"rust-analyzer",
+		"roslyn",
+
+		"stylua",
+		"black",
+		"prettier",
 	},
-	config = function()
-		require("configs.lsp").setup()
-	end,
-}
+})
+
+require("fidget").setup({})
+
+require("configs.lsp")

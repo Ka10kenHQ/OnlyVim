@@ -22,3 +22,8 @@ vim.keymap.set("n", "<leader>h", "<Cmd>tabprevious<CR>", { desc = "Prev tab" })
 vim.keymap.set("n", "<leader>l", "<Cmd>tabnext<CR>", { desc = "Next tab" })
 
 vim.keymap.set("n", "<C-n>", "<Cmd>Oil<CR>", { desc = "File Explorer Oil" })
+
+vim.keymap.set("n", "<leader>q", function()
+	vim.diagnostic.setqflist()
+	vim.cmd("copen")
+end)
