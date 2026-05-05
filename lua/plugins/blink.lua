@@ -1,31 +1,32 @@
-return {
-	"saghen/blink.cmp",
-	dependencies = { "rafamadriz/friendly-snippets" },
+vim.pack.add({
+	{ src = "https://github.com/saghen/blink.cmp" },
+	{ src = "https://github.com/saghen/blink.lib" },
+	{ src = "https://github.com/rafamadriz/friendly-snippets" },
+})
 
-	version = "1.*",
-	opts = {
-		keymap = { preset = "enter" },
+require("blink.cmp").setup({
+	keymap = { preset = "enter" },
 
-		appearance = {
-			nerd_font_variant = "mono",
-		},
-
-		completion = {
-			documentation = { auto_show = false },
-		},
-
-		sources = {
-			default = { "lsp", "path", "snippets", "buffer" },
-			per_filetype = {
-				sql = { "dadbod" },
-			},
-
-			providers = {
-				dadbod = { module = "vim_dadbod_completion.blink" },
-			},
-		},
-
-		fuzzy = { implementation = "prefer_rust_with_warning" },
+	appearance = {
+		nerd_font_variant = "mono",
 	},
-	opts_extend = { "sources.default" },
-}
+
+	completion = {
+		documentation = { auto_show = false },
+	},
+
+	sources = {
+		default = { "lsp", "path", "snippets", "buffer" },
+		per_filetype = {
+			sql = { "dadbod" },
+		},
+
+		providers = {
+			dadbod = { module = "vim_dadbod_completion.blink" },
+		},
+	},
+
+	fuzzy = {
+		implementation = "prefer_rust_with_warning",
+	},
+})

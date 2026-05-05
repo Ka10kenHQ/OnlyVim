@@ -1,12 +1,6 @@
-return {
-	"stevearc/oil.nvim",
-	opts = function()
-		local oil_opts = require("configs.oil")
-		return oil_opts
-	end,
-	config = function(_, opts)
-		require("oil").setup(opts)
-	end,
-	-- Optional dependencies
-	dependencies = { "nvim-tree/nvim-web-devicons" },
-}
+vim.pack.add({
+	{ src = "https://github.com/stevearc/oil.nvim" },
+})
+
+local opts = require("configs.oil")
+require("oil").setup(opts)

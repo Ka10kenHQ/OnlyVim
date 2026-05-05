@@ -1,26 +1,21 @@
-return {
-	"nvim-telescope/telescope.nvim",
-	event = "VimEnter",
-	branch = "master",
-	dependencies = {
-		"nvim-lua/plenary.nvim",
-		{
-			"nvim-telescope/telescope-fzf-native.nvim",
-			build = "make",
-			cond = function()
-				return vim.fn.executable("make") == 1
-			end,
-		},
-		{ "nvim-telescope/telescope-ui-select.nvim" },
-		{ "nvim-tree/nvim-web-devicons" },
-	},
-	config = function()
-		require("telescope").setup({
+vim.pack.add({
+	{ src = "https://github.com/nvim-lua/plenary.nvim" },
+	{ src = "https://github.com/nvim-tree/nvim-web-devicons" },
+	{ src = "https://github.com/nvim-telescope/telescope.nvim" },
+	{ src = "https://github.com/nvim-telescope/telescope-ui-select.nvim" },
+	{ src = "https://github.com/nvim-telescope/telescope-fzf-native.nvim" },
+})
+
+vim.api.nvim_create_autocmd("VimEnter", {
+	callback = function()
+		local telescope = require("telescope")
+		local builtin = require("telescope.builtin")
+
+		telescope.setup({
 			extensions = {
 				["ui-select"] = {
 					require("telescope.themes").get_dropdown(),
 				},
-
 				fzf = {},
 			},
 			defaults = {
@@ -39,31 +34,17 @@ return {
 					"node_modules",
 					"^.venv/",
 					"venv/*",
-					"%.pyc$", -- ignore compiled junk
+					"%.pyc$",
 					"__pycache__/",
 					"%.egg%-info/",
 					"target/",
 				},
-				file_inculde_pattern = { "%.json" },
-			},
-
-			pickers = {
-				-- find_files = {
-				-- theme = "ivy",
-				-- },
-			},
-
-			builtin = {
-				lsp_document_symbols = {
-					symbol_width = 100,
-				},
 			},
 		})
 
-		pcall(require("telescope").load_extension, "fzf")
-		pcall(require("telescope").load_extension, "ui-select")
+		pcall(telescope.load_extension, "fzf")
+		pcall(telescope.load_extension, "ui-select")
 
-		local builtin = require("telescope.builtin")
 		vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "[S]earch [H]elp" })
 		vim.keymap.set("n", "<leader>fk", builtin.keymaps, { desc = "[S]earch [K]eymaps" })
 		vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "[S]earch [F]iles" })
@@ -76,6 +57,10 @@ return {
 		vim.keymap.set("n", "<leader>gb", builtin.git_branches, { desc = "[S]earch [G]it [B]ranches" })
 		vim.keymap.set("n", "<leader>gc", builtin.git_bcommits, { desc = "[S]earch [G]it [C]ommits" })
 
+		-- lsp
+		vim.keymap.set("n", "sr", builtin.lsp_references, { buffer = bufnr })
+		vim.keymap.set("n", "<space>wd", builtin.lsp_document_symbols, { buffer = bufnr })
+
 		vim.keymap.set("n", "<leader>fb", function()
 			builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
 				winblend = 10,
@@ -87,6 +72,9 @@ return {
 			builtin.find_files({ cwd = vim.fn.stdpath("config") })
 		end, { desc = "[S]earch [N]eovim files" })
 
-		require("configs.telescope_theme").apply("borderless")
+		local ok, theme = pcall(require, "configs.telescope_theme")
+		if ok then
+			theme.apply("borderless")
+		end
 	end,
-}
+})

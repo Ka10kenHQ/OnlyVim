@@ -1,5 +1,8 @@
 # OnlyVim
 
+> [!WARNING]
+> You can use the stable version from the `master` branch.
+
 ### Simple and Configurable Neovim Distribution
 
 ![OnlyVim](https://github.com/OnlyVim/OnlyVim/blob/images/images/onlyvim_startup.png)

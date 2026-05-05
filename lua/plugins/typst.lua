@@ -1,5 +1,3 @@
-return {
-	"kaarmu/typst.vim",
-	ft = "typst",
-	lazy = true,
-}
+vim.pack.add({
+	{ src = "https://github.com/kaarmu/typst.vim" },
+})
