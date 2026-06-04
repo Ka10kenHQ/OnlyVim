@@ -44,6 +44,7 @@ vim.api.nvim_create_autocmd("VimEnter", {
 
 		pcall(telescope.load_extension, "fzf")
 		pcall(telescope.load_extension, "ui-select")
+		pcall(telescope.load_extension, "lsp_handlers")
 
 		vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "[S]earch [H]elp" })
 		vim.keymap.set("n", "<leader>fk", builtin.keymaps, { desc = "[S]earch [K]eymaps" })

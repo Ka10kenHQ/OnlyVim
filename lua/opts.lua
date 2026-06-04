@@ -28,6 +28,9 @@ vim.opt.guicursor = ""
 vim.opt.breakindent = true
 
 vim.opt.undofile = true
+vim.opt.swapfile = false
+vim.opt.backup = false
+vim.opt.undodir = vim.fn.stdpath("data") .. "/undodir"
 
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
@@ -35,6 +38,8 @@ vim.opt.smartcase = true
 vim.opt.signcolumn = "yes"
 vim.opt.colorcolumn = "100"
 vim.opt.updatetime = 50
+
+-- vim.o.cmdheight = 0
 
 vim.opt.splitright = true
 vim.opt.splitbelow = true
@@ -57,6 +62,11 @@ vim.loader.enable()
 vim.api.nvim_create_autocmd("TextYankPost", {
 	group = vim.api.nvim_create_augroup("highlight-yank", { clear = true }),
 	callback = function()
-		vim.highlight.on_yank()
+		vim.hl.hl_op()
 	end,
 })
+
+-- disable startup text
+vim.opt.shortmess:append("I")
+
+require("vim._core.ui2").enable()

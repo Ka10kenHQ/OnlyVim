@@ -6,7 +6,7 @@ require("conform").setup({
 	async = true,
 	notify_on_error = true,
 
-	format_on_save = function(_)
+	format_on_save = function(bufnr)
 		return {
 			timeout_ms = 1000,
 			lsp_fallback = true,
@@ -20,7 +20,7 @@ require("conform").setup({
 		-- cs = { "csharpier" },
 		javascript = { "prettier" },
 		typescript = { "prettier" },
-		rust = { "rustfmt" },
+		-- rust = { "rustfmt" },
 		html = { "prettier" },
 		jsx = { "prettier" },
 		typescriptreact = { "prettier" },

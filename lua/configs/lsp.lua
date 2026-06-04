@@ -3,6 +3,9 @@ vim.diagnostic.config({
 	virtual_lines = false,
 })
 
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = false
+
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(args)
 		vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = bufnr })
@@ -35,7 +38,6 @@ vim.lsp.config("lua_ls", {
 })
 
 vim.lsp.config("gopls", {
-	root_markers = { "go.mod", ".git" },
 	settings = {
 		gopls = {
 			hints = {
@@ -52,19 +54,25 @@ vim.lsp.config("gopls", {
 })
 
 vim.lsp.config("ts_ls", {
-	root_markers = { "package.json", "tsconfig.json", ".git" },
 	single_file_support = false,
 })
 
 vim.lsp.config("pyright", {
-	root_markers = { "pyproject.toml", "setup.py", ".git" },
 })
 
 vim.lsp.config("rust_analyzer", {
-	root_markers = { "Cargo.toml", ".git" },
+	settings = {
+		["rust-analyzer"] = {
+			files = {
+				excludeDirs = { "target" },
+			},
+		},
+	},
 })
 
 vim.lsp.config("roslyn", {
+	cmd = { "roslyn-language-server", "--stdio" },
+
 	on_attach = function()
 		print("Roslyn attached")
 	end,
@@ -78,6 +86,9 @@ vim.lsp.config("roslyn", {
 			dotnet_enable_references_code_lens = true,
 			dotnet_enable_tests_code_lens = true,
 		},
+		["csharp|symbol_search"] = {
+			dotnet_search_reference_assemblies = true,
+		}
 	},
 
 	flags = {

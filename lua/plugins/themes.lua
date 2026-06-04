@@ -2,6 +2,7 @@ vim.pack.add({
 	{ src = "https://github.com/tjdevries/colorbuddy.nvim" },
 	{ src = "https://github.com/rose-pine/neovim" },
 	{ src = "https://github.com/RRethy/base16-nvim" },
+	{ src = "https://github.com/vague-theme/vague.nvim"}
 })
 
 local theme_configs = require("configs.theme")
@@ -23,4 +24,9 @@ function M.gorgoroth()
 	theme_configs.gorgorithm()
 end
 
-return M.colorbuddy()
+function M.vague()
+	require("vague").setup()
+	theme_configs.vague()
+end
+
+return M.vague()

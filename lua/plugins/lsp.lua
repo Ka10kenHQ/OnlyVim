@@ -18,8 +18,6 @@ require("mason-tool-installer").setup({
 		"typescript-language-server",
 		"pyright",
 		"rust-analyzer",
-		"roslyn",
-
 		"stylua",
 		"black",
 		"prettier",
