@@ -5,6 +5,7 @@ vim.diagnostic.config({
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = false
+capabilities = require("blink.cmp").get_lsp_capabilities(capabilities)
 
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(args)
@@ -18,6 +19,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 
 vim.lsp.config("lua_ls", {
+	capabilities = capabilities,
 	settings = {
 		Lua = {
 			runtime = {
@@ -38,6 +40,7 @@ vim.lsp.config("lua_ls", {
 })
 
 vim.lsp.config("gopls", {
+	capabilities = capabilities,
 	settings = {
 		gopls = {
 			hints = {
@@ -54,13 +57,16 @@ vim.lsp.config("gopls", {
 })
 
 vim.lsp.config("ts_ls", {
+	capabilities = capabilities,
 	single_file_support = false,
 })
 
 vim.lsp.config("pyright", {
+	capabilities = capabilities,
 })
 
 vim.lsp.config("rust_analyzer", {
+	capabilities = capabilities,
 	settings = {
 		["rust-analyzer"] = {
 			files = {
@@ -71,6 +77,7 @@ vim.lsp.config("rust_analyzer", {
 })
 
 vim.lsp.config("roslyn", {
+	capabilities = capabilities,
 	cmd = { "roslyn-language-server", "--stdio" },
 
 	on_attach = function()

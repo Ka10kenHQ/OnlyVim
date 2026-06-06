@@ -29,4 +29,10 @@ function M.vague()
 	theme_configs.vague()
 end
 
-return M.vague()
+vim.api.nvim_create_autocmd("VimEnter", {
+	callback = function()
+		M.vague()
+	end,
+})
+
+return M

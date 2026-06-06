@@ -5,8 +5,6 @@ vim.pack.add({
 	{ src = "https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim" },
 
 	{ src = "https://github.com/j-hui/fidget.nvim" },
-
-	{ src = "https://github.com/b0o/SchemaStore.nvim" },
 })
 
 require("mason").setup()
