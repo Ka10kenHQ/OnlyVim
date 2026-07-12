@@ -20,6 +20,7 @@ require("mason-tool-installer").setup({
 		"black",
 		"prettier",
 	},
+	run_on_start = false,
 })
 
 require("fidget").setup({})

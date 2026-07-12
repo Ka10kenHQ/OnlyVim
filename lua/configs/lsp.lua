@@ -9,6 +9,8 @@ capabilities = require("blink.cmp").get_lsp_capabilities(capabilities)
 
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(args)
+		local bufnr = args.buf
+
 		vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = bufnr })
 		vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = bufnr })
 		vim.keymap.set("n", "gT", vim.lsp.buf.type_definition, { buffer = bufnr })
@@ -16,6 +18,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		vim.keymap.set("n", "<space>cr", vim.lsp.buf.rename, { buffer = bufnr })
 		vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, { buffer = bufnr })
 	end,
+})
+
+vim.lsp.config("clangd", {
+	capabilities = capabilities
 })
 
 vim.lsp.config("lua_ls", {
@@ -29,7 +35,7 @@ vim.lsp.config("lua_ls", {
 				globals = { "vim" },
 			},
 			workspace = {
-				library = vim.api.nvim_get_runtime_file("", true),
+				library = vim.api.nvim_get_runtime_file("lua", true),
 				checkThirdParty = false,
 			},
 			telemetry = {
@@ -84,30 +90,52 @@ vim.lsp.config("roslyn", {
 		print("Roslyn attached")
 	end,
 
-	settings = {
-		["csharp|inlay_hints"] = {
-			csharp_enable_inlay_hints_for_implicit_object_creation = true,
-			csharp_enable_inlay_hints_for_implicit_variable_types = true,
-		},
-		["csharp|code_lens"] = {
-			dotnet_enable_references_code_lens = true,
-			dotnet_enable_tests_code_lens = true,
-		},
-		["csharp|symbol_search"] = {
-			dotnet_search_reference_assemblies = true,
-		}
-	},
+	-- settings = {
+	-- 	["csharp|inlay_hints"] = {
+	-- 		csharp_enable_inlay_hints_for_implicit_object_creation = true,
+	-- 		csharp_enable_inlay_hints_for_implicit_variable_types = true,
+	-- 	},
+	-- 	["csharp|code_lens"] = {
+	-- 		dotnet_enable_references_code_lens = true,
+	-- 		dotnet_enable_tests_code_lens = true,
+	-- 	},
+	-- 	["csharp|symbol_search"] = {
+	-- 		dotnet_search_reference_assemblies = true,
+	-- 	}
+	-- },
 
-	flags = {
-		debounce_text_changes = 150,
-	},
+	-- flags = {
+	-- 	debounce_text_changes = 150,
+	-- },
 })
 
-vim.lsp.enable({
-	"lua_ls",
-	"gopls",
-	"ts_ls",
-	"pyright",
-	"rust_analyzer",
-	"roslyn",
+vim.lsp.config("svelte", {
+	capabilities = capabilities
+})
+
+local lsp_by_ft = {
+	lua = { "lua_ls" },
+	go = { "gopls" },
+	javascript = { "ts_ls" },
+	typescript = { "ts_ls" },
+	javascriptreact = { "ts_ls" },
+	typescriptreact = { "ts_ls" },
+	python = { "pyright" },
+	rust = { "rust_analyzer" },
+	cs = { "roslyn" },
+	typst = { "tinymist" },
+	svelte = { "svelte" },
+	c = { "clangd" }
+}
+
+vim.api.nvim_create_autocmd("FileType", {
+	callback = function(args)
+		local ft = args.match
+		local servers = lsp_by_ft[ft]
+		if not servers then return end
+
+		for _, server in ipairs(servers) do
+			vim.lsp.enable(server)
+		end
+	end,
 })

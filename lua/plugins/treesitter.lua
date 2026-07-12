@@ -1,35 +1,24 @@
 vim.pack.add({
-	{ src = "https://github.com/nvim-treesitter/nvim-treesitter" },
+  { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
 })
 
-require("nvim-treesitter").setup({
-	ensure_installed = {
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = {
 		"bash",
 		"cpp",
 		"html",
 		"lua",
 		"javascript",
+		"typescript",
 		"css",
 		"python",
 		"rust",
 		"sql",
 		"xml",
 		"java",
+		"svelte",
 	},
-
-	auto_install = true,
-
-	highlight = {
-		enable = true,
-		additional_vim_regex_highlighting = { "ruby" },
-	},
-
-	indent = {
-		enable = true,
-		disable = { "ruby" },
-	},
-
-	autotag = {
-		enable = true,
-	},
+	callback = function()
+		vim.treesitter.start()
+	end,
 })

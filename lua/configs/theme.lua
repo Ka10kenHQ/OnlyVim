@@ -27,15 +27,15 @@ themes.color_buddy = function()
 
 	vim.cmd.colorscheme("gruvbuddy")
 
-	vim.cmd([[
-		highlight LineNr guibg=NONE ctermbg=NONE
-		highlight CursorLineNr guifg=#88c0d0 gui=bold guibg=NONE
-		highlight Normal guibg=NONE ctermbg=NONE
-		highlight NormalNC guibg=NONE ctermbg=NONE
-		highlight SignColumn guibg=NONE
-		highlight EndOfBuffer guibg=NONE
-		highlight VertSplit guibg=NONE
-	]])
+	-- vim.cmd([[
+	-- 	highlight LineNr guibg=NONE ctermbg=NONE
+	-- 	highlight CursorLineNr guifg=#88c0d0 gui=bold guibg=NONE
+	-- 	highlight Normal guibg=NONE ctermbg=NONE
+	-- 	highlight NormalNC guibg=NONE ctermbg=NONE
+	-- 	highlight SignColumn guibg=NONE
+	-- 	highlight EndOfBuffer guibg=NONE
+	-- 	highlight VertSplit guibg=NONE
+	-- ]])
 end
 
 themes.rose_pine = function()
@@ -54,48 +54,17 @@ themes.rose_pine = function()
 		styles = {
 			bold = true,
 			italic = true,
-			transparency = true,
-		},
-
-		groups = {
-			border = "muted",
-			link = "iris",
-			panel = "surface",
-
-			error = "love",
-			hint = "iris",
-			info = "foam",
-			note = "pine",
-			todo = "rose",
-			warn = "gold",
-
-			git_add = "foam",
-			git_change = "rose",
-			git_delete = "love",
-			git_dirty = "rose",
-			git_ignore = "muted",
-			git_merge = "iris",
-			git_rename = "pine",
-			git_stage = "iris",
-			git_text = "rose",
-			git_untracked = "subtle",
-
-			h1 = "iris",
-			h2 = "foam",
-			h3 = "rose",
-			h4 = "gold",
-			h5 = "pine",
-			h6 = "foam",
+			transparency = false,
 		},
 	})
 
 	vim.cmd("colorscheme rose-pine")
 end
 
-themes.vague = function ()
+themes.vague = function()
 	require('vague').setup({
-		transparent = false, -- If true, background is not set
-		bold = true, -- Disable bold globally
+		transparent = true, -- If true, background is not set
+		bold = true,   -- Disable bold globally
 		italic = true, -- Disable italic globally
 		on_highlights = function(hl, colors) end,
 		colors = {

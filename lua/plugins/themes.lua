@@ -2,8 +2,7 @@ vim.pack.add({
 	{ src = "https://github.com/tjdevries/colorbuddy.nvim" },
 	{ src = "https://github.com/rose-pine/neovim" },
 	{ src = "https://github.com/RRethy/base16-nvim" },
-	{ src = "https://github.com/vague-theme/vague.nvim"}
-})
+	{ src = "https://github.com/vague-theme/vague.nvim" } })
 
 local theme_configs = require("configs.theme")
 
@@ -31,6 +30,7 @@ end
 
 vim.api.nvim_create_autocmd("VimEnter", {
 	callback = function()
+		-- vim.cmd.colorscheme("habamax")
 		M.vague()
 	end,
 })

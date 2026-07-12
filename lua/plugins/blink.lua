@@ -17,17 +17,30 @@ cmp.setup({
 	},
 
 	sources = {
-		default = { "lsp", "path", "snippets", "buffer" },
+		default = { "lsp" },
+
 		per_filetype = {
+			lua = { "lsp", "snippets" },
+			javascript = { "lsp", "snippets" },
+			typescript = { "lsp", "snippets" },
+			python = { "lsp" },
+			rust = { "lsp" },
 			sql = { "dadbod" },
 		},
 
 		providers = {
 			dadbod = { module = "vim_dadbod_completion.blink" },
+			buffer = {
+				min_keyword_length = 4, -- don't trigger early
+				max_items = 5,
+			},
+			path = {
+				min_keyword_length = 3,
+			},
 		},
 	},
 
 	fuzzy = {
-		implementation = "prefer_rust_with_warning",
+		implementation = "rust",
 	},
 })
